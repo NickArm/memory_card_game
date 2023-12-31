@@ -7,7 +7,98 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app header {
+  text-align: center;
+  margin-bottom: 20px;
 }
+
+.app header h1 {
+  margin: 0;
+  padding: 10px;
+  font-size: 2em;
+}
+
+.app header p {
+  margin: 0;
+  padding: 5px;
+  font-size: 1.2em;
+}
+
+
+.difficulty-selector{text-align: center;}
+
+
+.timer,
+.move-counter {
+  margin: 10px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.difficulty-selector button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.game-board {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  justify-content: center;
+  width: 60%;       /* The game board will take up 80% of the width of its container */
+  margin: 0 auto;   /* This will add automatic margins to the left and right, centering the board */
+}
+
+/* Optional: If you want to ensure the board has a minimum size, you can use min-width property */
+.game-board {
+  min-width: 300px; /* This is just an example value; adjust it as needed for your design */
+}
+
+
+.game-board-easy {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.game-board-medium {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.game-board-hard {
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr); /* Assuming 6x5 is for 'hard' */
+}
+
+.card {
+  border-radius: 10px;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+  background: #fff; /* Add a background to the card */
+  display: flex; /* Use flex to center the content */
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem; /* Adjust font size for the question mark */
+  user-select: none; /* Prevent user from selecting the text */
+}
+
+/* Adjust card size based on the container's width */
+.card {
+  width: 100%; /* Make the card fill the container */
+  height: 100%; /* Make the card fill the container */
+  aspect-ratio: 1/1; /* Keep a consistent aspect ratio for the cards */
+}
+
+.card.flipped {
+  transform: rotateY(180deg); /* Simple flip effect */
+}
+
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+}
+
+/* No need for media queries if the size is managed by the container's grid */
